@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Combined Coverage Map</title>
+    <title>Sprinkle Cupcakes</title>
     <meta charset="utf-8" />
     <style>
         html, body, #map {
@@ -132,9 +132,9 @@
 
             const infoWindow = new google.maps.InfoWindow();
 
-            // Define URLs for the data sources
-            const radioDataURL = 'https://jzantow.github.io/radio-coverage/locations.json';
-            const billboardDataURL = 'https://jzantow.github.io/radio-coverage/billboards.json';
+            // UPDATED: Using relative paths to accommodate the repo name change to 'donuts'
+            const radioDataURL = './locations.json';
+            const billboardDataURL = './billboards.json';
 
             // Fetch both JSON files at the same time
             Promise.all([
@@ -144,16 +144,14 @@
                 // --- Process and Combine Data ---
                 const uniqueStores = new Map();
 
-                // Process radio data for stations and stores
                 radioLocations.forEach(loc => {
                     if (loc.Type === "Station") {
                         stationData.push(loc);
                     } else if (loc.Type === "Store") {
-                        uniqueStores.set(loc.Name, loc); // Use name as a key to prevent duplicates
+                        uniqueStores.set(loc.Name, loc);
                     }
                 });
 
-                // Process billboard data for billboards and stores
                 billboardLocations.forEach(loc => {
                     if (loc.Type === "Billboard") {
                         billboardData.push(loc);
@@ -164,12 +162,10 @@
 
                 const allStores = Array.from(uniqueStores.values());
                 
-                // --- Create Markers for Each Type ---
                 createMarkers(allStores);
                 createMarkers(stationData);
                 createMarkers(billboardData);
 
-                // Set up the initial state of the markers and filter listeners
                 updateMarkers();
                 document.getElementById('storesCheckbox').addEventListener('change', updateMarkers);
                 document.getElementById('stationsCheckbox').addEventListener('change', updateMarkers);
@@ -177,19 +173,17 @@
 
             }).catch(err => console.error("Failed to load location data:", err));
 
-            // --- Universal Marker Creation Function ---
             function createMarkers(locations) {
                 locations.forEach(loc => {
                     const position = { lat: loc.Latitude, lng: loc.Longitude };
                     const color = COLORS[loc.Type] || "#000";
 
-                    // Draw coverage circles for stations and billboards
                     if (loc.Type === "Station" || loc.Type === "Billboard") {
                         const circle = new google.maps.Circle({
                             strokeColor: color, strokeOpacity: 0.8, strokeWeight: 2,
                             fillColor: color, fillOpacity: 0.25,
                             center: position,
-                            radius: (loc.Radius || 0) * 1609.34, // Convert miles to meters
+                            radius: (loc.Radius || 0) * 1609.34, 
                             map: map, clickable: false
                         });
                         circles.push(circle);
@@ -206,7 +200,6 @@
                     });
                     marker.defaultIcon = defaultIcon;
 
-                    // Add appropriate click listener based on type
                     if (loc.Type === "Store") {
                         addStoreClickListener(marker, loc);
                         storeMarkers.push(marker);
@@ -220,7 +213,6 @@
                 });
             }
 
-            // --- Click Listener for STORES ---
             function addStoreClickListener(marker, loc) {
                 marker.addListener("click", () => {
                     highlightMarker(marker);
@@ -249,7 +241,6 @@
                 });
             }
             
-            // --- Click Listener for STATIONS ---
             function addStationClickListener(marker, loc) {
                 marker.addListener("click", () => {
                     highlightMarker(marker);
@@ -258,7 +249,6 @@
                 });
             }
 
-            // --- Click Listener for BILLBOARDS (from your file) ---
             function addBillboardClickListener(marker, loc) {
                 marker.addListener("click", () => {
                     highlightMarker(marker);
@@ -286,13 +276,11 @@
                 highlightedMarker = marker;
             }
 
-            // --- Filter Function ---
             function updateMarkers() {
                 const showStores = document.getElementById('storesCheckbox').checked;
                 const showStations = document.getElementById('stationsCheckbox').checked;
                 const showBillboards = document.getElementById('billboardsCheckbox').checked;
 
-                // Toggle visibility of markers
                 storeMarkers.forEach(marker => {
                     marker.setMap(showStores ? map : null);
                 });
@@ -306,7 +294,6 @@
                 });
             }
             
-            // Reusable search function
             function performSearch(query, markers, notFoundMessage) {
                 if (!query) return;
                 const match = markers.find(m => m.getTitle().toLowerCase().includes(query));
@@ -320,10 +307,8 @@
                 }
             }
 
-            // --- Search Event Listeners ---
             document.getElementById("storeSearchBtn").addEventListener("click", () => {
                 const query = document.getElementById("storeSearchBox").value.trim().toLowerCase();
-                // Custom store search to handle "#" prefixes
                 const match = storeMarkers.find(m => {
                     const title = m.getTitle().toLowerCase();
                     const numMatch = title.match(/#?(\d+)/);
@@ -341,7 +326,6 @@
                 performSearch(query, billboardMarkers, "No matching billboard found.");
             });
 
-            // --- Reset Button ---
             document.getElementById("resetBtn").addEventListener("click", () => {
                 document.getElementById("storeSearchBox").value = "";
                 document.getElementById("stationSearchBox").value = "";
