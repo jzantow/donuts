@@ -21,8 +21,8 @@
             margin-top: 0;
             color: #333;
         }
-        /* Search Bar Styles */
-        .search-container {
+        /* Search and Export Controls */
+        .controls-container {
             margin-bottom: 20px;
             display: flex;
             gap: 10px;
@@ -33,6 +33,18 @@
             font-size: 16px;
             border: 1px solid #ddd;
             border-radius: 4px;
+        }
+        .btn-export {
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-export:hover {
+            background-color: #218838;
         }
         
         /* Table Styles */
@@ -70,9 +82,6 @@
             color: #999;
             font-style: italic;
         }
-        .highlight {
-            background-color: yellow;
-        }
         .loading {
             text-align: center;
             padding: 20px;
@@ -88,8 +97,9 @@
 <div class="container">
     <h1>Store Coverage Report</h1>
     
-    <div class="search-container">
+    <div class="controls-container">
         <input type="text" id="searchInput" placeholder="Search by Store Name or Number..." onkeyup="filterTable()">
+        <button class="btn-export" onclick="downloadCSV()">Export to CSV</button>
     </div>
 
     <table id="coverageTable">
@@ -111,6 +121,7 @@
     let allStores = [];
     let allBillboards = [];
     let allStations = [];
+    let currentDisplayedStores = []; // To track what is currently filtered
 
     // URLs for your data files
     const urls = {
@@ -127,17 +138,18 @@
         ]).then(([stores, billboards, radios]) => {
             
             // Normalize Data
-            allStores = stores; // Assuming locations.json contains stores
+            allStores = stores;
             
-            // Filter just in case the files are mixed, though we treat them strictly here
+            // Normalize "Type" just in case
             allBillboards = billboards.map(b => ({...b, Type: 'Billboard'}));
             allStations = radios.map(r => ({...r, Type: 'Station'}));
 
-            // Calculate Coverage for every store immediately
+            // Calculate Coverage
             calculateCoverage();
 
-            // Render the full table
-            renderTable(allStores);
+            // Initial Render
+            currentDisplayedStores = allStores;
+            renderTable(currentDisplayedStores);
 
         }).catch(err => {
             console.error(err);
@@ -153,7 +165,7 @@
             store.nearbyBillboards = allBillboards.filter(bb => {
                 const bbLoc = new google.maps.LatLng(bb.Latitude, bb.Longitude);
                 const distanceMeters = google.maps.geometry.spherical.computeDistanceBetween(storeLoc, bbLoc);
-                const radiusMeters = (bb.Radius || 0) * 1609.34; // Convert miles to meters
+                const radiusMeters = (bb.Radius || 0) * 1609.34; 
                 return distanceMeters <= radiusMeters;
             });
 
@@ -161,7 +173,7 @@
             store.nearbyStations = allStations.filter(station => {
                 const stationLoc = new google.maps.LatLng(station.Latitude, station.Longitude);
                 const distanceMeters = google.maps.geometry.spherical.computeDistanceBetween(storeLoc, stationLoc);
-                const radiusMeters = (station.Radius || 0) * 1609.34; // Convert miles to meters
+                const radiusMeters = (station.Radius || 0) * 1609.34;
                 return distanceMeters <= radiusMeters;
             });
         });
@@ -179,20 +191,19 @@
         storesToRender.forEach(store => {
             const tr = document.createElement('tr');
 
-            // --- Column 1: Store Info ---
+            // Column 1: Store
             const storeCell = document.createElement('td');
             storeCell.className = 'col-store';
             storeCell.textContent = store.Name;
             tr.appendChild(storeCell);
 
-            // --- Column 2: Billboards ---
+            // Column 2: Billboards
             const bbCell = document.createElement('td');
             bbCell.className = 'col-bb';
             if (store.nearbyBillboards.length > 0) {
                 store.nearbyBillboards.forEach(bb => {
                     const div = document.createElement('div');
                     div.className = 'list-item';
-                    // Displaying Name (ON #) and Location info
                     div.innerHTML = `<strong>ON #${bb.Name}</strong>: ${bb.Info || 'N/A'}`; 
                     bbCell.appendChild(div);
                 });
@@ -201,14 +212,13 @@
             }
             tr.appendChild(bbCell);
 
-            // --- Column 3: Radio Stations ---
+            // Column 3: Radio
             const radioCell = document.createElement('td');
             radioCell.className = 'col-radio';
             if (store.nearbyStations.length > 0) {
                 store.nearbyStations.forEach(st => {
                     const div = document.createElement('div');
                     div.className = 'list-item';
-                    // Displaying Name, Genre, and Rank
                     div.innerHTML = `<strong>${st.Name}</strong> (${st.Genre || 'N/A'}) - Rank: ${st.Rank || 'N/A'}`;
                     radioCell.appendChild(div);
                 });
@@ -225,16 +235,65 @@
         const input = document.getElementById('searchInput');
         const filter = input.value.toLowerCase().trim();
 
-        const filteredStores = allStores.filter(store => {
+        currentDisplayedStores = allStores.filter(store => {
             const storeName = store.Name.toLowerCase();
-            // Check if name includes text OR if it includes the number specifically
             return storeName.includes(filter);
         });
 
-        renderTable(filteredStores);
+        renderTable(currentDisplayedStores);
     }
 
-    // Initialize when window loads
+    function downloadCSV() {
+        if (!currentDisplayedStores || currentDisplayedStores.length === 0) {
+            alert("No data to export!");
+            return;
+        }
+
+        // CSV Header
+        const headers = ["Store Name", "Store Latitude", "Store Longitude", "Matched Billboards", "Matched Stations"];
+        
+        // Map data to CSV rows
+        const rows = currentDisplayedStores.map(store => {
+            // Format Billboards: "ON #12345 (Loc); ON #6789 (Loc)"
+            const billboardsStr = store.nearbyBillboards.map(bb => 
+                `ON #${bb.Name} (${bb.Info || ''})`
+            ).join("; ");
+
+            // Format Stations: "KDIL (Genre); KISC (Genre)"
+            const stationsStr = store.nearbyStations.map(st => 
+                `${st.Name} (${st.Genre || ''})`
+            ).join("; ");
+
+            // Escape special CSV characters (quotes) and wrap fields in quotes
+            const escape = (text) => {
+                if (text === null || text === undefined) return '""';
+                return '"' + String(text).replace(/"/g, '""') + '"';
+            };
+
+            return [
+                escape(store.Name),
+                escape(store.Latitude),
+                escape(store.Longitude),
+                escape(billboardsStr),
+                escape(stationsStr)
+            ].join(",");
+        });
+
+        // Combine header and rows
+        const csvContent = [headers.join(","), ...rows].join("\n");
+
+        // Trigger Download
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", "coverage_report.csv");
+        link.style.visibility = "hidden";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
     window.onload = init;
 
 </script>
