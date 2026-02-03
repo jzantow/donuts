@@ -26,6 +26,7 @@
             margin-bottom: 20px;
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
         input[type="text"] {
             flex-grow: 1;
@@ -33,6 +34,7 @@
             font-size: 16px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            min-width: 200px;
         }
         .btn-export {
             padding: 12px 20px;
@@ -42,10 +44,21 @@
             border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
+            white-space: nowrap;
         }
-        .btn-export:hover {
-            background-color: #218838;
+        .btn-export:hover { background-color: #218838; }
+
+        .btn-export-secondary {
+            padding: 12px 20px;
+            background-color: #007bff; /* Blue */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            white-space: nowrap;
         }
+        .btn-export-secondary:hover { background-color: #0069d9; }
         
         /* Table Styles */
         table {
@@ -99,7 +112,8 @@
     
     <div class="controls-container">
         <input type="text" id="searchInput" placeholder="Search by Store Name or Number..." onkeyup="filterTable()">
-        <button class="btn-export" onclick="downloadCSV()">Export to CSV</button>
+        <button class="btn-export" onclick="downloadCSV()">Export Detailed CSV</button>
+        <button class="btn-export-secondary" onclick="downloadCondensedCSV()">Export Condensed CSV</button>
     </div>
 
     <table id="coverageTable">
@@ -121,7 +135,7 @@
     let allStores = [];
     let allBillboards = [];
     let allStations = [];
-    let currentDisplayedStores = []; // To track what is currently filtered
+    let currentDisplayedStores = []; 
 
     // URLs for your data files
     const urls = {
@@ -137,17 +151,14 @@
             fetch(urls.radio).then(r => r.json())
         ]).then(([stores, billboards, radios]) => {
             
-            // Normalize Data
             allStores = stores;
             
-            // Normalize "Type" just in case
+            // Normalize
             allBillboards = billboards.map(b => ({...b, Type: 'Billboard'}));
             allStations = radios.map(r => ({...r, Type: 'Station'}));
 
-            // Calculate Coverage
             calculateCoverage();
 
-            // Initial Render
             currentDisplayedStores = allStores;
             renderTable(currentDisplayedStores);
 
@@ -191,13 +202,13 @@
         storesToRender.forEach(store => {
             const tr = document.createElement('tr');
 
-            // Column 1: Store
+            // Store Column
             const storeCell = document.createElement('td');
             storeCell.className = 'col-store';
             storeCell.textContent = store.Name;
             tr.appendChild(storeCell);
 
-            // Column 2: Billboards
+            // Billboard Column
             const bbCell = document.createElement('td');
             bbCell.className = 'col-bb';
             if (store.nearbyBillboards.length > 0) {
@@ -212,7 +223,7 @@
             }
             tr.appendChild(bbCell);
 
-            // Column 3: Radio
+            // Radio Column
             const radioCell = document.createElement('td');
             radioCell.className = 'col-radio';
             if (store.nearbyStations.length > 0) {
@@ -243,55 +254,82 @@
         renderTable(currentDisplayedStores);
     }
 
+    // --- CSV UTILITIES ---
+
+    function escapeCsv(text) {
+        if (text === null || text === undefined) return '""';
+        return '"' + String(text).replace(/"/g, '""') + '"';
+    }
+
+    function triggerDownload(content, filename) {
+        const blob = new Blob([content], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", filename);
+        link.style.visibility = "hidden";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // --- BUTTON 1: DETAILED CSV ---
     function downloadCSV() {
         if (!currentDisplayedStores || currentDisplayedStores.length === 0) {
             alert("No data to export!");
             return;
         }
 
-        // CSV Header
         const headers = ["Store Name", "Store Latitude", "Store Longitude", "Matched Billboards", "Matched Stations"];
         
-        // Map data to CSV rows
         const rows = currentDisplayedStores.map(store => {
-            // Format Billboards: "ON #12345 (Loc); ON #6789 (Loc)"
-            const billboardsStr = store.nearbyBillboards.map(bb => 
-                `ON #${bb.Name} (${bb.Info || ''})`
-            ).join("; ");
-
-            // Format Stations: "KDIL (Genre); KISC (Genre)"
-            const stationsStr = store.nearbyStations.map(st => 
-                `${st.Name} (${st.Genre || ''})`
-            ).join("; ");
-
-            // Escape special CSV characters (quotes) and wrap fields in quotes
-            const escape = (text) => {
-                if (text === null || text === undefined) return '""';
-                return '"' + String(text).replace(/"/g, '""') + '"';
-            };
+            const billboardsStr = store.nearbyBillboards.map(bb => `ON #${bb.Name} (${bb.Info || ''})`).join("; ");
+            const stationsStr = store.nearbyStations.map(st => `${st.Name} (${st.Genre || ''})`).join("; ");
 
             return [
-                escape(store.Name),
-                escape(store.Latitude),
-                escape(store.Longitude),
-                escape(billboardsStr),
-                escape(stationsStr)
+                escapeCsv(store.Name),
+                escapeCsv(store.Latitude),
+                escapeCsv(store.Longitude),
+                escapeCsv(billboardsStr),
+                escapeCsv(stationsStr)
             ].join(",");
         });
 
-        // Combine header and rows
         const csvContent = [headers.join(","), ...rows].join("\n");
+        triggerDownload(csvContent, "coverage_detailed.csv");
+    }
 
-        // Trigger Download
-        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.setAttribute("href", url);
-        link.setAttribute("download", "coverage_report.csv");
-        link.style.visibility = "hidden";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    // --- BUTTON 2: CONDENSED CSV (Requested Update) ---
+    function downloadCondensedCSV() {
+        if (!currentDisplayedStores || currentDisplayedStores.length === 0) {
+            alert("No data to export!");
+            return;
+        }
+
+        // Headers requested: Store #, Billboard ON #, Station Call Sign, Station Dial
+        const headers = ["Store Number/Name", "Billboard ON #s", "Station Call Signs", "Station Dials"];
+        
+        const rows = currentDisplayedStores.map(store => {
+            
+            // 1. Billboards (Just the 'Name' which is the ON #)
+            const bbNumbers = store.nearbyBillboards.map(bb => bb.Name).join("; ");
+
+            // 2. Stations (Just the 'Name' which is Call Sign)
+            const stCallSigns = store.nearbyStations.map(st => st.Name).join("; ");
+            
+            // 3. Stations (Dial - Checking for a 'Dial' key, otherwise N/A)
+            const stDials = store.nearbyStations.map(st => st.Dial || "N/A").join("; ");
+
+            return [
+                escapeCsv(store.Name),
+                escapeCsv(bbNumbers),
+                escapeCsv(stCallSigns),
+                escapeCsv(stDials)
+            ].join(",");
+        });
+
+        const csvContent = [headers.join(","), ...rows].join("\n");
+        triggerDownload(csvContent, "coverage_condensed.csv");
     }
 
     window.onload = init;
