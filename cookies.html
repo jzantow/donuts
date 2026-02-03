@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sprinkle Cupcakes v0.1</title>
+    <title>Sprinkle Cupcakes v0.2</title>
     <meta charset="utf-8" />
     <style>
         html, body, #map {
@@ -59,8 +59,8 @@
             vertical-align: middle;
             border-radius: 3px;
         }
-        .legend-color.store      { background: #FF6347; } /* Red-Orange */
-        .legend-color.station    { background: #1E90FF; } /* Blue */
+        .legend-color.store       { background: #FF6347; } /* Red-Orange */
+        .legend-color.station     { background: #1E90FF; } /* Blue */
         .legend-color.billboard { background: #32CD32; } /* Green */
     </style>
 
@@ -132,51 +132,60 @@
 
             const infoWindow = new google.maps.InfoWindow();
 
-            // UPDATED: Using relative paths to accommodate the repo name change to 'donuts'
-            const radioDataURL = './radio.json';
-            const billboardDataURL = './billboards.json';
-
-// Define the 3 separate files
+            // UPDATED: Now loading 3 separate files
             const radioDataURL = './radio.json';
             const billboardDataURL = './billboards.json';
             const storeDataURL = './locations.json';
 
             // Fetch all 3 JSON files at the same time
             Promise.all([
-                fetch(radioDataURL).then(res => res.json()),
-                fetch(billboardDataURL).then(res => res.json()),
-                fetch(storeDataURL).then(res => res.json())
-            ]).then(([radioLocations, billboardLocations, storeLocations]) => {
+                fetch(radioDataURL).then(res => {
+                    if (!res.ok) throw new Error(`Failed to load ${radioDataURL}`);
+                    return res.json();
+                }),
+                fetch(billboardDataURL).then(res => {
+                    if (!res.ok) throw new Error(`Failed to load ${billboardDataURL}`);
+                    return res.json();
+                }),
+                fetch(storeDataURL).then(res => {
+                    if (!res.ok) throw new Error(`Failed to load ${storeDataURL}`);
+                    return res.json();
+                })
+            ]).then(([radioList, billboardList, storeList]) => {
                 
-                // --- Process Stations (from radio.json) ---
-                radioLocations.forEach(loc => {
-                    if (loc.Type === "Station") {
-                        stationData.push(loc);
-                    }
+                // --- 1. Process Stations ---
+                radioList.forEach(loc => {
+                    loc.Type = "Station"; // Ensure Type is set
+                    stationData.push(loc);
                 });
 
-                // --- Process Billboards (from billboards.json) ---
-                billboardLocations.forEach(loc => {
-                    if (loc.Type === "Billboard") {
-                        billboardData.push(loc);
-                    }
+                // --- 2. Process Billboards ---
+                billboardList.forEach(loc => {
+                    loc.Type = "Billboard"; // Ensure Type is set
+                    billboardData.push(loc);
                 });
 
-                // --- Process Stores (from locations.json) ---
-                // We filter just in case, or you can pass storeLocations directly if clean
-                const allStores = storeLocations.filter(loc => loc.Type === "Store");
-
-                // Create the markers
+                // --- 3. Process Stores ---
+                const allStores = storeList.map(loc => {
+                    loc.Type = "Store"; // Ensure Type is set
+                    return loc;
+                });
+                
+                // Create Markers
                 createMarkers(allStores);
                 createMarkers(stationData);
                 createMarkers(billboardData);
 
+                // Initialize Filters
                 updateMarkers();
                 document.getElementById('storesCheckbox').addEventListener('change', updateMarkers);
                 document.getElementById('stationsCheckbox').addEventListener('change', updateMarkers);
                 document.getElementById('billboardsCheckbox').addEventListener('change', updateMarkers);
 
-            }).catch(err => console.error("Failed to load location data:", err));
+            }).catch(err => {
+                console.error("Map Data Error:", err);
+                alert("Could not load map data. Check console (F12) for details.");
+            });
 
             function createMarkers(locations) {
                 locations.forEach(loc => {
