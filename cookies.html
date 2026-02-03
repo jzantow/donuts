@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sprinkle Cupcakes v0.2</title>
+    <title>Sprinkle Cupcakes v0.3</title>
     <meta charset="utf-8" />
     <style>
         html, body, #map {
@@ -132,12 +132,11 @@
 
             const infoWindow = new google.maps.InfoWindow();
 
-            // UPDATED: Now loading 3 separate files
             const radioDataURL = './radio.json';
             const billboardDataURL = './billboards.json';
             const storeDataURL = './locations.json';
 
-            // Fetch all 3 JSON files at the same time
+            // Fetch all 3 JSON files
             Promise.all([
                 fetch(radioDataURL).then(res => {
                     if (!res.ok) throw new Error(`Failed to load ${radioDataURL}`);
@@ -155,19 +154,19 @@
                 
                 // --- 1. Process Stations ---
                 radioList.forEach(loc => {
-                    loc.Type = "Station"; // Ensure Type is set
+                    loc.Type = "Station"; 
                     stationData.push(loc);
                 });
 
                 // --- 2. Process Billboards ---
                 billboardList.forEach(loc => {
-                    loc.Type = "Billboard"; // Ensure Type is set
+                    loc.Type = "Billboard"; 
                     billboardData.push(loc);
                 });
 
                 // --- 3. Process Stores ---
                 const allStores = storeList.map(loc => {
-                    loc.Type = "Store"; // Ensure Type is set
+                    loc.Type = "Store"; 
                     return loc;
                 });
                 
@@ -258,7 +257,16 @@
             function addStationClickListener(marker, loc) {
                 marker.addListener("click", () => {
                     highlightMarker(marker);
-                    infoWindow.setContent(`<strong>${loc.Name}</strong>`);
+                    const content = `
+                        <strong>${loc.Name}</strong><br>
+                        <b>Genre:</b> ${loc.Genre || "N/A"}<br>
+                        <b>Rank:</b> ${loc.Rank || "N/A"}<br>
+                        <b>Flight 1 Start:</b> ${loc["Flight 1 Start Date"] || "N/A"}<br>
+                        <b>Flight 1 Stop:</b> ${loc["Flight 1 Stop Date"] || "N/A"}<br>
+                        <b>Coverage:</b> ${loc["Coverage Map"] ? `<a href="${loc["Coverage Map"]}" target="_blank">View Map</a>` : "N/A"}<br>
+                        <b>Buy Summary:</b> ${loc["Buy Summary"] ? `<a href="${loc["Buy Summary"]}" target="_blank">View Summary</a>` : "N/A"}
+                    `;
+                    infoWindow.setContent(content);
                     infoWindow.open(map, marker);
                 });
             }
