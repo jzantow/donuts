@@ -136,32 +136,37 @@
             const radioDataURL = './radio.json';
             const billboardDataURL = './billboards.json';
 
-            // Fetch both JSON files at the same time
+// Define the 3 separate files
+            const radioDataURL = './radio.json';
+            const billboardDataURL = './billboards.json';
+            const storeDataURL = './locations.json';
+
+            // Fetch all 3 JSON files at the same time
             Promise.all([
                 fetch(radioDataURL).then(res => res.json()),
-                fetch(billboardDataURL).then(res => res.json())
-            ]).then(([radioLocations, billboardLocations]) => {
-                // --- Process and Combine Data ---
-                const uniqueStores = new Map();
-
+                fetch(billboardDataURL).then(res => res.json()),
+                fetch(storeDataURL).then(res => res.json())
+            ]).then(([radioLocations, billboardLocations, storeLocations]) => {
+                
+                // --- Process Stations (from radio.json) ---
                 radioLocations.forEach(loc => {
                     if (loc.Type === "Station") {
                         stationData.push(loc);
-                    } else if (loc.Type === "Store") {
-                        uniqueStores.set(loc.Name, loc);
                     }
                 });
 
+                // --- Process Billboards (from billboards.json) ---
                 billboardLocations.forEach(loc => {
                     if (loc.Type === "Billboard") {
                         billboardData.push(loc);
-                    } else if (loc.Type === "Store") {
-                        uniqueStores.set(loc.Name, loc);
                     }
                 });
 
-                const allStores = Array.from(uniqueStores.values());
-                
+                // --- Process Stores (from locations.json) ---
+                // We filter just in case, or you can pass storeLocations directly if clean
+                const allStores = storeLocations.filter(loc => loc.Type === "Store");
+
+                // Create the markers
                 createMarkers(allStores);
                 createMarkers(stationData);
                 createMarkers(billboardData);
