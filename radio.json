@@ -1843,5 +1843,20 @@
     "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
     "Coverage Map": "https://radio-locator.com/pats/KKVU_FM_LU.gif",
     "Buyer": "Headquarters"
+  },
+    {
+    "Name": "KORT 92.7FM",
+    "Genre": "Country",
+    "Radio Dial": 92.7,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 45.86330862635457,
+    "Longitude": -116.12432946080767,
+    "Radius": 25,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KORT_FM_LU.gif",
+    "Buyer": "Headquarters"
   }
 ]
