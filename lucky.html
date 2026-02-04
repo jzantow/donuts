@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Store Coverage Table</title>
+    <title>Store Coverage Table v0.2</title>
     <meta charset="utf-8" />
     <style>
         body {
@@ -113,7 +113,7 @@
     <div class="controls-container">
         <input type="text" id="searchInput" placeholder="Search by Store Name or Number..." onkeyup="filterTable()">
         <button class="btn-export" onclick="downloadCSV()">Export Detailed CSV</button>
-        <button class="btn-export-secondary" onclick="downloadCondensedCSV()">Export Condensed CSV</button>
+        <button class="btn-export-secondary" onclick="downloadCondensedCSV()">Export Condensed CSV (One Item Per Row)</button>
     </div>
 
     <table id="coverageTable">
@@ -299,36 +299,46 @@
         triggerDownload(csvContent, "coverage_detailed.csv");
     }
 
-    // --- BUTTON 2: CONDENSED CSV (Requested Update) ---
+    // --- BUTTON 2: CONDENSED CSV (ONE ROW PER ITEM) ---
     function downloadCondensedCSV() {
         if (!currentDisplayedStores || currentDisplayedStores.length === 0) {
             alert("No data to export!");
             return;
         }
 
-        // Headers requested: Store #, Billboard ON #, Station Call Sign, Station Dial
-        const headers = ["Store Number/Name", "Billboard ON #s", "Station Call Signs", "Station Dials"];
+        // Headers: Store, Billboard ON#, Radio Call Sign
+        const headers = ["Store Number/Name", "Billboard ON #", "Station Call Sign"];
         
-        const rows = currentDisplayedStores.map(store => {
-            
-            // 1. Billboards (Just the 'Name' which is the ON #)
-            const bbNumbers = store.nearbyBillboards.map(bb => bb.Name).join("; ");
+        let csvRows = [];
 
-            // 2. Stations (Just the 'Name' which is Call Sign)
-            const stCallSigns = store.nearbyStations.map(st => st.Name).join("; ");
-            
-            // 3. Stations (Dial - Checking for a 'Dial' key, otherwise N/A)
-            const stDials = store.nearbyStations.map(st => st.Dial || "N/A").join("; ");
+        // Add Header Row
+        csvRows.push(headers.join(","));
 
-            return [
-                escapeCsv(store.Name),
-                escapeCsv(bbNumbers),
-                escapeCsv(stCallSigns),
-                escapeCsv(stDials)
-            ].join(",");
+        currentDisplayedStores.forEach(store => {
+            const storeName = escapeCsv(store.Name);
+            let hasData = false;
+
+            // 1. Generate one row for every Billboard
+            store.nearbyBillboards.forEach(bb => {
+                hasData = true;
+                // Row Format: Store, BB_ID, (Empty Radio)
+                csvRows.push([storeName, escapeCsv(bb.Name), '""'].join(","));
+            });
+
+            // 2. Generate one row for every Radio Station
+            store.nearbyStations.forEach(st => {
+                hasData = true;
+                // Row Format: Store, (Empty BB), Radio_Name
+                csvRows.push([storeName, '""', escapeCsv(st.Name)].join(","));
+            });
+
+            // 3. Optional: If store has NO coverage, output one line so it isn't lost
+            if (!hasData) {
+                csvRows.push([storeName, '""', '""'].join(","));
+            }
         });
 
-        const csvContent = [headers.join(","), ...rows].join("\n");
+        const csvContent = csvRows.join("\n");
         triggerDownload(csvContent, "coverage_condensed.csv");
     }
 
