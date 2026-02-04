@@ -11,7 +11,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KCMS_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KCMS_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KIRO 710AM",
@@ -25,7 +26,8 @@
     "Radius": 85,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KIRO_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KIRO_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KIRO 97.3FM",
@@ -39,7 +41,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KIRO_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KIRO_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KISW 99.9FM",
@@ -53,7 +56,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KISW_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KISW_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KJAQ 96.5FM",
@@ -67,7 +71,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KJAQ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KJAQ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KJEB 95.7FM",
@@ -81,7 +86,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KJEB_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KJEB_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KKWF 100.7FM",
@@ -95,7 +101,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KKWF_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KKWF_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KNDD 107.7FM",
@@ -109,7 +116,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KNDD_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KNDD_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KNWN 1000AM",
@@ -123,7 +131,8 @@
     "Radius": 65,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KNWN_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KNWN_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KQMV 92.5FM",
@@ -137,7 +146,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KQMV_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KQMV_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KRWM 106.9FM",
@@ -151,7 +161,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KRWM_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KRWM_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KRWM 106.9FM",
@@ -165,7 +176,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KZOK_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KZOK_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KAFE 104.1FM",
@@ -179,7 +191,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KAFE_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KAFE_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KGMI 790AM",
@@ -193,7 +206,8 @@
     "Radius": 60,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KGMI_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KGMI_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KISM 92.9FM",
@@ -207,7 +221,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KISM_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KISM_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KCTR 102.9FM",
@@ -221,7 +236,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KCTR_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KCTR_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KRSQ 101.9FM",
@@ -235,7 +251,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KRSQ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KRSQ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KRZN 96.3FM",
@@ -249,7 +266,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KRZN_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KRZN_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KIKC 101.3FM",
@@ -263,7 +281,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KIKC_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KIKC_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KJJM 100.5FM",
@@ -277,7 +296,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KJJM_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KJJM_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KYUS 92.3FM",
@@ -291,7 +311,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KYUS_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KYUS_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KRXY 94.5FM",
@@ -305,7 +326,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KRXY_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KRXY_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KYYO 96.9FM",
@@ -319,7 +341,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KYYO_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KYYO_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KBMX 107.7FM",
@@ -333,7 +356,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KBMX_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KBMX_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KDKE 102.5FM",
@@ -347,7 +371,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KDKE_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KDKE_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KLDJ 101.7FM",
@@ -361,7 +386,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KLDJ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KLDJ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KQDS 94.9FM",
@@ -375,7 +401,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KQDS_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KQDS_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "WWPE 92.1FM",
@@ -389,7 +416,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/WWPE_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/WWPE_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KBVB 95.1FM",
@@ -403,7 +431,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KBVB_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KBVB_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KEGK 106.9FM",
@@ -417,7 +446,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KEGK_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KEGK_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KFGO 790AM",
@@ -431,7 +461,8 @@
     "Radius": 110,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KFGO_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KFGO_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KLTA 98.7FM",
@@ -445,7 +476,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KLTA_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KLTA_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KPFX 107.9FM",
@@ -459,7 +491,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KPFX_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KPFX_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KQWB 105.1FM",
@@ -473,7 +506,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KQWB_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KQWB_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KJKJ 107.5FM",
@@ -487,7 +521,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KJKJ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KJKJ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KKXL 92.9FM",
@@ -501,7 +536,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KKXL_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KKXL_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KNOX 1310AM",
@@ -515,7 +551,8 @@
     "Radius": 60,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KNOX_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KNOX_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KQHT 96.1FM",
@@ -529,7 +566,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KQHT_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KQHT_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KEEY 102.1FM",
@@ -543,7 +581,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KEEY_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KEEY_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KFXN 100.3FM",
@@ -557,7 +596,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KFXN_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KFXN_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KQQL 107.9FM",
@@ -571,7 +611,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KQQL_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KQQL_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KQRS 92.5FM",
@@ -585,7 +626,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KQRS_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KQRS_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KSTP 94.5FM",
@@ -599,7 +641,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KSTP_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KSTP_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KTCZ 97.1FM",
@@ -613,7 +656,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KTCZ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KTCZ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KXXR 93.7FM",
@@ -627,7 +671,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KXXR_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KXXR_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KZJK 104.1FM",
@@ -641,7 +686,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KZJK_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KZJK_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KCLD 104.7FM",
@@ -655,7 +701,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KCLD_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KCLD_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KLZZ 103.7FM",
@@ -669,7 +716,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KLZZ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KLZZ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KZPK 98.9FM",
@@ -683,7 +731,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KZPK_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KZPK_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "WWJO 98.1FM",
@@ -697,7 +746,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/WWJO_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/WWJO_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KELO 101.9FM",
@@ -711,7 +761,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KELO_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KELO_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KKLS 104.7FM",
@@ -725,7 +776,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KKLS_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KKLS_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KKRC 97.3FM",
@@ -739,7 +791,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KKRC_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KKRC_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KRRO 103.7FM",
@@ -753,7 +806,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KRRO_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KRRO_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KTWB 92.5FM",
@@ -767,7 +821,8 @@
     "Radius": 60,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KTWB_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KTWB_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KYBB 102.7FM",
@@ -781,7 +836,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KYBB_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KYBB_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KBFO 106.7FM",
@@ -795,7 +851,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KBFO_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KBFO_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KGIM 103.7FM",
@@ -809,7 +866,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KGIM_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KGIM_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KNBZ 97.7FM",
@@ -823,7 +881,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KNBZ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KNBZ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KSDN 94.1FM",
@@ -837,7 +896,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KSDN_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KSDN_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KAUS 99.9FM",
@@ -851,7 +911,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KAUS_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KAUS_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KRCH 101.7FM",
@@ -865,7 +926,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KRCH_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KRCH_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KYBA 105.3FM",
@@ -879,7 +941,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KYBA_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KYBA_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KDLR 99.7AM",
@@ -893,7 +956,8 @@
     "Radius": 45,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KDLR_AM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KDLR_AM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KDVL 102.5FM",
@@ -907,7 +971,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KDVL_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KDVL_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KZZY 103.5FM",
@@ -921,7 +986,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KZZY_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KZZY_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KCAD FM",
@@ -935,7 +1001,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KCAD_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KCAD_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KDXN 105.7FM",
@@ -949,7 +1016,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KDXN_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KDXN_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KQLZ 95.7FM",
@@ -963,7 +1031,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KQLZ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KQLZ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KFMC 106.5FM",
@@ -977,7 +1046,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KFMC_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KFMC_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KSUM 1370AM",
@@ -991,7 +1061,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KSUM_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KSUM_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KRVX 103.1FM",
@@ -1005,7 +1076,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KRVX_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KRVX_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KSJB 600AM",
@@ -1019,7 +1091,8 @@
     "Radius": 130,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KSJB_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KSJB_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KYNU 95.5FM",
@@ -1033,7 +1106,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KYNU_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KYNU_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KARL 106.9FM",
@@ -1047,7 +1121,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KARL_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KARL_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KARZ 99.7FM",
@@ -1061,7 +1136,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KARZ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KARZ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KARP 106.9FM",
@@ -1075,7 +1151,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KARP_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KARP_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KGLB 1310AM",
@@ -1089,7 +1166,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KGLB_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KGLB_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KJRV 93.3FM",
@@ -1103,7 +1181,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KJRV_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KJRV_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KMIT 105.9FM",
@@ -1117,7 +1196,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KMIT_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KMIT_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KQRN 107.3FM",
@@ -1131,7 +1211,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KQRN_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KQRN_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KUQL 98.3FM",
@@ -1145,7 +1226,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KUQL_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KUQL_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KHAQ 98.5FM",
@@ -1159,7 +1241,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KHAQ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KHAQ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KNPQ 107.3FM",
@@ -1173,7 +1256,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KNPQ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KNPQ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KXNP 103.5FM",
@@ -1187,7 +1271,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KXNP_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KXNP_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KCCR 104.5FM",
@@ -1201,7 +1286,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KCCR_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KCCR_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KJBI 100.1FM",
@@ -1215,7 +1301,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KJBI_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KJBI_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KLXS 95.3FM",
@@ -1229,7 +1316,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KLXS_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KLXS_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KWYR 1260AM",
@@ -1243,7 +1331,8 @@
     "Radius": 60,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KWYR_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KWYR_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KTHC 104.9FM",
@@ -1257,7 +1346,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KTHC_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KTHC_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KVCK 92.7FM",
@@ -1271,7 +1361,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KVCK_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KVCK_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KYYZ 96.1FM",
@@ -1285,7 +1376,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KYYZ_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KYYZ_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KBHB 810AM",
@@ -1299,7 +1391,8 @@
     "Radius": 90,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KBHB_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KBHB_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KFMH 101.9FM",
@@ -1313,7 +1406,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KFMH_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KFMH_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KZZI 95.6FM & 96.3FM",
@@ -1327,7 +1421,8 @@
     "Radius": 50,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KZZI_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KZZI_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KKSD 104.3FM",
@@ -1341,7 +1436,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KKSD_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KKSD_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KPHR 106.3FM",
@@ -1355,7 +1451,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KPHR_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KPHR_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KSDR 92.9FM",
@@ -1369,7 +1466,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KSDR_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KSDR_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KXLG 99.1FM",
@@ -1383,7 +1481,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KXLG_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KXLG_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KLFN 106.5FM",
@@ -1397,7 +1496,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KLFN_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KLFN_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KQIC 102.5FM",
@@ -1411,7 +1511,8 @@
     "Radius": 40,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KQIC_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KQIC_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KDSR 101.1FM",
@@ -1425,7 +1526,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KDSR_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KDSR_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KEYZ 660AM",
@@ -1439,7 +1541,8 @@
     "Radius": 110,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KEYZ_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KEYZ_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KGCX 93.1FM",
@@ -1453,7 +1556,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KGCX_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KGCX_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KDAM 94.3FM",
@@ -1467,7 +1571,8 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KDAM_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KDAM_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KVHT 106.3FM",
@@ -1481,7 +1586,8 @@
     "Radius": 25,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KVHT_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KVHT_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "WNAX 570AM",
@@ -1495,7 +1601,8 @@
     "Radius": 130,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/WNAX_AM_LD.gif"
+    "Coverage Map": "https://radio-locator.com/pats/WNAX_AM_LD.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "WNAX 104.1FM",
@@ -1509,7 +1616,8 @@
     "Radius": 35,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/WNAX_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/WNAX_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KIGN 101.9FM",
@@ -1523,7 +1631,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KIGN_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KIGN_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KOLT 100.7FM",
@@ -1537,7 +1646,8 @@
     "Radius": 30,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KOLT_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KOLT_FM_LU.gif",
+    "Buyer": "Agency"
   },
   {
     "Name": "KRAN 103.3FM",
@@ -1551,6 +1661,187 @@
     "Radius": 20,
     "Type": "Station",
     "Buy Summary": "https://docs.google.com/spreadsheets/d/10wP01TdKKj7wfUY00QrbPJHU3L18HsQj/edit?gid=1289211295#gid=1289211295",
-    "Coverage Map": "https://radio-locator.com/pats/KRAN_FM_LU.gif"
+    "Coverage Map": "https://radio-locator.com/pats/KRAN_FM_LU.gif",
+    "Buyer": "Agency"
+  },
+  {
+    "Name": "KOFI 1180AM",
+    "Genre": "News/Talk/Oldies",
+    "Radio Dial": 1180,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 48.19788715,
+    "Longitude": -114.2519013,
+    "Radius": 50,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KOFI_AM_LD.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KZMN 103.9FM",
+    "Genre": "Classic Rock",
+    "Radio Dial": 103.9,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 48.0941998,
+    "Longitude": -114.2706703,
+    "Radius": 35,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KZMN_FM_LU.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KOLK 94.3FM",
+    "Genre": "Country",
+    "Radio Dial": 94.3,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 48.09426429,
+    "Longitude": -114.2706595,
+    "Radius": 25,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KOLK_FM_LU.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KDBR 106.3FM",
+    "Genre": "Country",
+    "Radio Dial": 106.3,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 48.51173958,
+    "Longitude": -114.372079,
+    "Radius": 40,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KDBR_FM_LU.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KBBZ 98.5FM",
+    "Genre": "Classic Rock",
+    "Radio Dial": 98.5,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 48.51176801,
+    "Longitude": -114.371524,
+    "Radius": 40,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KBBZ_FM_LU.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KWOL 105.1FM",
+    "Genre": "Classic Hits",
+    "Radio Dial": 105.1,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 48.51196683,
+    "Longitude": -114.3712245,
+    "Radius": 45,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KWOL_FM_LU.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KHNK 1240AM",
+    "Genre": "Sports/Talk",
+    "Radio Dial": 1240,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 48.39559833,
+    "Longitude": -114.320688,
+    "Radius": 8,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KHNK_AM_LD.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KJJR 880AM",
+    "Genre": "News/Talk",
+    "Radio Dial": 880,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 48.39561258,
+    "Longitude": -114.3206558,
+    "Radius": 30,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KJJR_AM_LD.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KRVO 103.1FM",
+    "Genre": "Greatest Hits",
+    "Radio Dial": 103.1,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 48.51196683,
+    "Longitude": -114.3712245,
+    "Radius": 30,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KRVO_FM_LU.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KDTR 103.3FM",
+    "Genre": "Alternative",
+    "Radio Dial": 103.3,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 46.80168645,
+    "Longitude": -113.9737415,
+    "Radius": 25,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KDTR_FM_LU.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KYJK 105.9FM",
+    "Genre": "Greatest Hits",
+    "Radio Dial": 105.9,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 46.80168645,
+    "Longitude": -113.97372,
+    "Radius": 25,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KYJK_FM_LU.gif",
+    "Buyer": "Headquarters"
+  },
+  {
+    "Name": "KKVU 104.5FM",
+    "Genre": "Greatest Hits",
+    "Radio Dial": 104.5,
+    "Rank": "Unsure",
+    "Flight 1 Start Date": "1/1/2026",
+    "Flight 1 Stop Date": "12/31/2026",
+    "Latitude": 46.80173785,
+    "Longitude": -113.9736985,
+    "Radius": 35,
+    "Type": "Station",
+    "Buy Summary": "https://docs.google.com/spreadsheets/d/19VeidGFgi6vz4GldsfANmP22XfGONiyBKXeE4wB6yBE/edit?gid=0#gid=0",
+    "Coverage Map": "https://radio-locator.com/pats/KKVU_FM_LU.gif",
+    "Buyer": "Headquarters"
   }
 ]
