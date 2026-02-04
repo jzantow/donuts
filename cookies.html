@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sprinkle Cupcakes v0.3</title>
+    <title>Sprinkle Cupcakes v0.4</title>
     <meta charset="utf-8" />
     <style>
         html, body, #map {
@@ -261,6 +261,7 @@
                         <strong>${loc.Name}</strong><br>
                         <b>Genre:</b> ${loc.Genre || "N/A"}<br>
                         <b>Rank:</b> ${loc.Rank || "N/A"}<br>
+                        <b>Buyer:</b> ${loc["Buyer"] || "N/A"}<br>
                         <b>Flight 1 Start:</b> ${loc["Flight 1 Start Date"] || "N/A"}<br>
                         <b>Flight 1 Stop:</b> ${loc["Flight 1 Stop Date"] || "N/A"}<br>
                         <b>Coverage:</b> ${loc["Coverage Map"] ? `<a href="${loc["Coverage Map"]}" target="_blank">View Map</a>` : "N/A"}<br>
@@ -280,7 +281,7 @@
                         <b>Location:</b> ${loc.Info || "N/A"}<br>
                         <b>Live Dates:</b><br>${(loc["Live Dates"] || "N/A").replace(/\n/g, "<br>")}<br>
                         <b>Buyer:</b> ${loc["Buyer"] || "N/A"}<br>
-                        <b>Associated Store(s):</b> ${loc["Associated Store(s)"] || "N/A"}<br>
+                        <b>Associated Store(s) (Manual):</b> ${loc["Associated Store(s)"] || "N/A"}<br>
                         <b>Directional:</b> ${loc["Directional"] || "N/A"}<br>
                         <b>Creative:</b> ${loc.Creative ? `<a href="${loc.Creative}" target="_blank">View</a>` : "N/A"}<br>
                         ${loc["POP Photo"] ? `<b>POP Photo:</b> <a href="${loc["POP Photo"]}" target="_blank">View</a>` : ""}
