@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Store Coverage Table v0.2</title>
+    <title>Store Coverage Table v0.3</title>
     <meta charset="utf-8" />
     <style>
         body {
@@ -306,8 +306,8 @@
             return;
         }
 
-        // Headers: Store, Billboard ON#, Radio Call Sign
-        const headers = ["Store Number/Name", "Billboard ON #", "Station Call Sign"];
+        // Headers: Store, Billboard Full Info, Radio Call Sign
+        const headers = ["Store Number/Name", "Billboard Coverage", "Station Call Sign"];
         
         let csvRows = [];
 
@@ -321,8 +321,13 @@
             // 1. Generate one row for every Billboard
             store.nearbyBillboards.forEach(bb => {
                 hasData = true;
-                // Row Format: Store, BB_ID, (Empty Radio)
-                csvRows.push([storeName, escapeCsv(bb.Name), '""'].join(","));
+                
+                // Remove "ON #" (case insensitive) from the Name and combine with Info
+                const cleanName = String(bb.Name).replace(/ON\s?#/gi, '').trim();
+                const fullBillboardValue = `${cleanName}: ${bb.Info || 'N/A'}`;
+
+                // Row Format: Store, Full Billboard Value, (Empty Radio)
+                csvRows.push([storeName, escapeCsv(fullBillboardValue), '""'].join(","));
             });
 
             // 2. Generate one row for every Radio Station
