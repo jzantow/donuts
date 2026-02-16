@@ -1,66 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Oatmeal v0.1 - Radio Coverage Map</title>
+    <title>Oatmeal v0.2 - Cluster Mode</title>
     <meta charset="utf-8" />
     <style>
-        html, body, #map {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+        html, body, #map { height: 100%; margin: 0; padding: 0; }
         #controls {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 5;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 12px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: absolute; top: 10px; left: 10px; z-index: 5;
+            display: flex; flex-direction: column; gap: 5px;
+            background: rgba(255, 255, 255, 0.95); padding: 12px;
+            border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             font-family: 'Segoe UI', Arial, sans-serif;
         }
         input[type="text"] {
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 260px;
+            padding: 8px; font-size: 14px; border: 1px solid #ccc;
+            border-radius: 4px; width: 260px;
         }
         .control-btn {
-            padding: 8px 12px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background: #fff;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.2s;
+            padding: 8px 12px; font-size: 14px; border: 1px solid #ccc;
+            border-radius: 4px; background: #fff; cursor: pointer;
+            font-weight: 600; transition: background 0.2s;
         }
         .control-btn:hover { background: #f8f8f8; }
         
         #legend {
-            position: absolute;
-            bottom: 30px;
-            right: 10px;
-            z-index: 5;
-            background: white;
-            padding: 12px;
-            font-family: sans-serif;
-            font-size: 13px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: absolute; bottom: 30px; right: 10px; z-index: 5;
+            background: white; padding: 12px; font-family: sans-serif;
+            font-size: 13px; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             border-radius: 8px;
         }
         .legend-item { display: flex; align-items: center; margin-bottom: 5px; }
         .legend-color {
-            width: 14px;
-            height: 14px;
-            margin-right: 8px;
-            border-radius: 50%;
-            border: 1px solid #fff;
+            width: 14px; height: 14px; margin-right: 8px;
+            border-radius: 50%; border: 1px solid #fff;
             box-shadow: 0 0 2px rgba(0,0,0,0.5);
         }
         .store-c     { background: #FF6347; } 
@@ -69,20 +41,18 @@
     </style>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlgV94Xs1mTP01IZo3wqQWpx9png3l4DE&libraries=geometry"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 </head>
 <body>
     <div id="controls">
-        <strong style="margin-bottom:5px;">Oatmeal Control Panel</strong>
+        <strong style="margin-bottom:5px;">Oatmeal v0.6 (Clustered)</strong>
         <input id="storeSearchBox" type="text" placeholder="Search Store (e.g. 97)" />
         <button id="storeSearchBtn" class="control-btn">Find Store</button>
         
         <input id="stationSearchBox" type="text" placeholder="Search Station (e.g. KDIL)" />
         <button id="stationSearchBtn" class="control-btn">Find Station</button>
         
-        <input id="billboardSearchBox" type="text" placeholder="Search Billboard (ON #)" />
-        <button id="billboardSearchBtn" class="control-btn">Find Billboard</button>
-        
-        <button id="resetBtn" class="control-btn" style="color: #d9534f;">Reset Map</button>
+        <button id="resetBtn" class="control-btn" style="color: #d9534f; margin-top:5px;">Reset Map</button>
 
         <hr style="width:100%; border: 0; border-top: 1px solid #eee; margin: 10px 0;">
 
@@ -102,111 +72,90 @@
     </div>
 
     <script>
-        let map;
-        const storeMarkers     = [];
-        const stationMarkers   = [];
-        const billboardMarkers = [];
-        const circles          = []; 
-        
-        let globalStations   = []; 
+        let map, storeClusterer, stationClusterer, billboardClusterer;
+        const storeMarkers = [], stationMarkers = [], billboardMarkers = [];
+        let globalStations = [];
         let highlightedMarker = null;
 
-        const COLORS = {
-            "Store":     "#FF6347", 
-            "Station":   "#1E90FF", 
-            "Billboard": "#32CD32"  
-        };
+        const COLORS = { "Store": "#FF6347", "Station": "#1E90FF", "Billboard": "#32CD32" };
 
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 5,
-                center: { lat: 42.53, lng: -114.36 },
-                gestureHandling: "greedy",
-                mapTypeControl: false,
-                scaleControl: true,
+                zoom: 5, center: { lat: 42.53, lng: -114.36 },
+                gestureHandling: "greedy", mapTypeControl: false,
                 styles: [{ featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] }]
             });
 
+            // Initialize empty clusterers
+            storeClusterer = new markerClusterer.MarkerClusterer({ map, markers: [] });
+            stationClusterer = new markerClusterer.MarkerClusterer({ map, markers: [] });
+            billboardClusterer = new markerClusterer.MarkerClusterer({ map, markers: [] });
+
             const infoWindow = new google.maps.InfoWindow();
 
-            // Fetching your BigQuery data (exported as JSON)
             Promise.all([
                 fetch('./radio.json').then(res => res.json()),
                 fetch('./billboards.json').then(res => res.json()),
                 fetch('./locations.json').then(res => res.json())
             ]).then(([stations, billboards, stores]) => {
-                
                 globalStations = stations;
 
-                // Create Data Layers
                 createMarkers(stores.map(d => ({...d, Type: "Store"})), infoWindow);
                 createMarkers(stations.map(d => ({...d, Type: "Station"})), infoWindow);
                 createMarkers(billboards.map(d => ({...d, Type: "Billboard"})), infoWindow);
 
-                // Filter Events
+                // Add markers to clusterers
+                storeClusterer.addMarkers(storeMarkers);
+                stationClusterer.addMarkers(stationMarkers);
+                billboardClusterer.addMarkers(billboardMarkers);
+
                 ['storesCheckbox', 'stationsCheckbox', 'billboardsCheckbox'].forEach(id => {
                     document.getElementById(id).addEventListener('change', updateMarkers);
                 });
 
-            }).catch(err => console.error("Data loading failed:", err));
+            }).catch(err => console.error("Oatmeal Data Error:", err));
 
             function createMarkers(locations, infoWindow) {
                 locations.forEach(loc => {
                     const position = { lat: parseFloat(loc.Latitude), lng: parseFloat(loc.Longitude) };
                     const color = COLORS[loc.Type];
 
-                    // --- TOOLTIP LOGIC (Requirement: "Multiple Stations" if overlapping) ---
+                    // --- TOOLTIP LOGIC ---
                     let hoverLabel = String(loc.Name);
                     if (loc.Type === "Station") {
-                        const overlap = globalStations.filter(s => 
-                            s.Latitude === loc.Latitude && s.Longitude === loc.Longitude
-                        ).length;
+                        const overlap = globalStations.filter(s => s.Latitude === loc.Latitude && s.Longitude === loc.Longitude).length;
                         if (overlap > 1) hoverLabel = "Multiple stations";
                     }
 
-                    // --- COVERAGE RADIUS (X Miles to Meters) ---
+                    // --- RADIUS LOGIC ---
                     let coverageCircle = null;
                     if ((loc.Type === "Station" || loc.Type === "Billboard") && loc.Radius) {
                         coverageCircle = new google.maps.Circle({
-                            strokeColor: color,
-                            strokeOpacity: 0.4,
-                            strokeWeight: 1,
-                            fillColor: color,
-                            fillOpacity: 0.12,
-                            center: position,
-                            map: map,
-                            clickable: false,
-                            radius: parseFloat(loc.Radius) * 1609.34 
+                            strokeColor: color, strokeOpacity: 0.4, strokeWeight: 1,
+                            fillColor: color, fillOpacity: 0.12,
+                            center: position, map: map, clickable: false,
+                            radius: parseFloat(loc.Radius) * 1609.34 // Miles to Meters
                         });
-                        circles.push(coverageCircle);
                     }
 
                     const marker = new google.maps.Marker({
-                        position: position,
-                        map: map,
-                        title: hoverLabel,
+                        position: position, title: hoverLabel,
                         icon: {
-                            path: google.maps.SymbolPath.CIRCLE,
-                            scale: 6,
-                            fillColor: color,
-                            fillOpacity: 1,
-                            strokeWeight: 1.5,
-                            strokeColor: "#ffffff"
+                            path: google.maps.SymbolPath.CIRCLE, scale: 6,
+                            fillColor: color, fillOpacity: 1,
+                            strokeWeight: 1.5, strokeColor: "#ffffff"
                         }
                     });
 
                     marker.defaultIcon = marker.getIcon();
                     marker.coverageCircle = coverageCircle;
 
-                    // Click Actions
                     marker.addListener("click", () => {
                         if (highlightedMarker) highlightedMarker.setIcon(highlightedMarker.defaultIcon);
                         marker.setIcon({ ...marker.defaultIcon, scale: 9, fillColor: "#FFD700" });
                         highlightedMarker = marker;
 
                         let content = `<strong>${loc.Name}</strong><br>Type: ${loc.Type}`;
-                        
-                        // Special logic for Stores to see which stations cover them
                         if (loc.Type === "Store") {
                             const covering = globalStations.filter(st => {
                                 const dist = google.maps.geometry.spherical.computeDistanceBetween(
@@ -215,10 +164,8 @@
                                 );
                                 return dist <= (parseFloat(st.Radius) * 1609.34);
                             }).map(st => st.Name);
-                            
-                            content += `<br><br><b>In Broadcast Range:</b><br>${covering.length ? covering.join("<br>") : "None"}`;
+                            content += `<br><br><b>Covered by Stations:</b><br>${covering.length ? covering.join("<br>") : "None"}`;
                         }
-
                         infoWindow.setContent(content);
                         infoWindow.open(map, marker);
                     });
@@ -234,27 +181,23 @@
                 const r = document.getElementById('stationsCheckbox').checked;
                 const b = document.getElementById('billboardsCheckbox').checked;
 
-                storeMarkers.forEach(m => m.setMap(s ? map : null));
-                stationMarkers.forEach(m => {
-                    m.setMap(r ? map : null);
-                    if (m.coverageCircle) m.coverageCircle.setMap(r ? map : null);
-                });
-                billboardMarkers.forEach(m => {
-                    m.setMap(b ? map : null);
-                    if (m.coverageCircle) m.coverageCircle.setMap(b ? map : null);
-                });
+                if (s) storeClusterer.setMap(map); else storeClusterer.setMap(null);
+                if (r) stationClusterer.setMap(map); else stationClusterer.setMap(null);
+                if (b) billboardClusterer.setMap(map); else billboardClusterer.setMap(null);
+
+                // Circles toggle separately from clusters
+                stationMarkers.forEach(m => { if (m.coverageCircle) m.coverageCircle.setMap(r ? map : null); });
+                billboardMarkers.forEach(m => { if (m.coverageCircle) m.coverageCircle.setMap(b ? map : null); });
             }
 
-            // Search Logic
             document.getElementById("storeSearchBtn").addEventListener("click", () => {
                 const val = document.getElementById("storeSearchBox").value.toLowerCase();
                 const m = storeMarkers.find(m => m.getTitle().toLowerCase().includes(val));
-                if (m) { map.panTo(m.getPosition()); map.setZoom(13); google.maps.event.trigger(m, "click"); }
+                if (m) { map.panTo(m.getPosition()); map.setZoom(12); google.maps.event.trigger(m, "click"); }
             });
 
             document.getElementById("resetBtn").addEventListener("click", () => {
-                map.setZoom(5);
-                map.setCenter({ lat: 42.53, lng: -114.36 });
+                map.setZoom(5); map.setCenter({ lat: 42.53, lng: -114.36 });
                 if (highlightedMarker) highlightedMarker.setIcon(highlightedMarker.defaultIcon);
                 infoWindow.close();
             });
