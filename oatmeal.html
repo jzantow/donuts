@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Oatmeal v0.2 - Cluster Mode</title>
+    <title>Oatmeal v0.3 - Geodesic Precision</title>
     <meta charset="utf-8" />
     <style>
         html, body, #map { height: 100%; margin: 0; padding: 0; }
@@ -24,7 +24,7 @@
         .control-btn:hover { background: #f8f8f8; }
         
         #legend {
-            position: absolute; bottom: 30px; right: 10px; z-index: 5;
+            position: absolute; bottom: 40px; right: 10px; z-index: 5;
             background: white; padding: 12px; font-family: sans-serif;
             font-size: 13px; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             border-radius: 8px;
@@ -45,7 +45,7 @@
 </head>
 <body>
     <div id="controls">
-        <strong style="margin-bottom:5px;">Oatmeal v0.6 (Clustered)</strong>
+        <strong style="margin-bottom:5px;">Oatmeal v0.7 (Accurate Radius)</strong>
         <input id="storeSearchBox" type="text" placeholder="Search Store (e.g. 97)" />
         <button id="storeSearchBtn" class="control-btn">Find Store</button>
         
@@ -81,12 +81,14 @@
 
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 5, center: { lat: 42.53, lng: -114.36 },
-                gestureHandling: "greedy", mapTypeControl: false,
+                zoom: 5, 
+                center: { lat: 42.53, lng: -114.36 },
+                gestureHandling: "greedy", 
+                mapTypeControl: false,
+                scaleControl: true, // --- SCALE BAR ENABLED ---
                 styles: [{ featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] }]
             });
 
-            // Initialize empty clusterers
             storeClusterer = new markerClusterer.MarkerClusterer({ map, markers: [] });
             stationClusterer = new markerClusterer.MarkerClusterer({ map, markers: [] });
             billboardClusterer = new markerClusterer.MarkerClusterer({ map, markers: [] });
@@ -104,7 +106,6 @@
                 createMarkers(stations.map(d => ({...d, Type: "Station"})), infoWindow);
                 createMarkers(billboards.map(d => ({...d, Type: "Billboard"})), infoWindow);
 
-                // Add markers to clusterers
                 storeClusterer.addMarkers(storeMarkers);
                 stationClusterer.addMarkers(stationMarkers);
                 billboardClusterer.addMarkers(billboardMarkers);
@@ -117,7 +118,11 @@
 
             function createMarkers(locations, infoWindow) {
                 locations.forEach(loc => {
-                    const position = { lat: parseFloat(loc.Latitude), lng: parseFloat(loc.Longitude) };
+                    const lat = parseFloat(loc.Latitude);
+                    const lng = parseFloat(loc.Longitude);
+                    if (isNaN(lat) || isNaN(lng)) return; // Skip bad data
+
+                    const position = { lat: lat, lng: lng };
                     const color = COLORS[loc.Type];
 
                     // --- TOOLTIP LOGIC ---
@@ -127,19 +132,27 @@
                         if (overlap > 1) hoverLabel = "Multiple stations";
                     }
 
-                    // --- RADIUS LOGIC ---
+                    // --- ACCURATE RADIUS LOGIC ---
                     let coverageCircle = null;
-                    if ((loc.Type === "Station" || loc.Type === "Billboard") && loc.Radius) {
+                    const rawRadius = parseFloat(loc.Radius);
+                    if ((loc.Type === "Station" || loc.Type === "Billboard") && !isNaN(rawRadius) && rawRadius > 0) {
                         coverageCircle = new google.maps.Circle({
-                            strokeColor: color, strokeOpacity: 0.4, strokeWeight: 1,
-                            fillColor: color, fillOpacity: 0.12,
-                            center: position, map: map, clickable: false,
-                            radius: parseFloat(loc.Radius) * 1609.34 // Miles to Meters
+                            strokeColor: color, 
+                            strokeOpacity: 0.4, 
+                            strokeWeight: 1,
+                            fillColor: color, 
+                            fillOpacity: 0.12,
+                            center: position, 
+                            map: map, 
+                            clickable: false,
+                            radius: rawRadius * 1609.34, // Miles to Meters
+                            geodesic: true // --- PREVENTS SCALE DISTORTION ---
                         });
                     }
 
                     const marker = new google.maps.Marker({
-                        position: position, title: hoverLabel,
+                        position: position, 
+                        title: hoverLabel,
                         icon: {
                             path: google.maps.SymbolPath.CIRCLE, scale: 6,
                             fillColor: color, fillOpacity: 1,
@@ -155,7 +168,7 @@
                         marker.setIcon({ ...marker.defaultIcon, scale: 9, fillColor: "#FFD700" });
                         highlightedMarker = marker;
 
-                        let content = `<strong>${loc.Name}</strong><br>Type: ${loc.Type}`;
+                        let content = `<strong>${loc.Name}</strong><br>Type: ${loc.Type}<br>Radius: ${rawRadius || 0} mi`;
                         if (loc.Type === "Store") {
                             const covering = globalStations.filter(st => {
                                 const dist = google.maps.geometry.spherical.computeDistanceBetween(
@@ -185,7 +198,6 @@
                 if (r) stationClusterer.setMap(map); else stationClusterer.setMap(null);
                 if (b) billboardClusterer.setMap(map); else billboardClusterer.setMap(null);
 
-                // Circles toggle separately from clusters
                 stationMarkers.forEach(m => { if (m.coverageCircle) m.coverageCircle.setMap(r ? map : null); });
                 billboardMarkers.forEach(m => { if (m.coverageCircle) m.coverageCircle.setMap(b ? map : null); });
             }
