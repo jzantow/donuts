@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Oatmeal v0.3 - Geodesic Precision</title>
+    <title>Oatmeal v0.4 - Precision Layering</title>
     <meta charset="utf-8" />
     <style>
         html, body, #map { height: 100%; margin: 0; padding: 0; }
@@ -21,8 +21,6 @@
             border-radius: 4px; background: #fff; cursor: pointer;
             font-weight: 600; transition: background 0.2s;
         }
-        .control-btn:hover { background: #f8f8f8; }
-        
         #legend {
             position: absolute; bottom: 40px; right: 10px; z-index: 5;
             background: white; padding: 12px; font-family: sans-serif;
@@ -30,41 +28,28 @@
             border-radius: 8px;
         }
         .legend-item { display: flex; align-items: center; margin-bottom: 5px; }
-        .legend-color {
-            width: 14px; height: 14px; margin-right: 8px;
-            border-radius: 50%; border: 1px solid #fff;
-            box-shadow: 0 0 2px rgba(0,0,0,0.5);
-        }
-        .store-c     { background: #FF6347; } 
-        .station-c   { background: #1E90FF; } 
-        .billboard-c { background: #32CD32; } 
+        .legend-color { width: 14px; height: 14px; margin-right: 8px; border-radius: 50%; border: 1px solid #fff; box-shadow: 0 0 2px rgba(0,0,0,0.5); }
+        .store-c { background: #FF6347; } .station-c { background: #1E90FF; } .billboard-c { background: #32CD32; }
     </style>
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlgV94Xs1mTP01IZo3wqQWpx9png3l4DE&libraries=geometry"></script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 </head>
 <body>
     <div id="controls">
-        <strong style="margin-bottom:5px;">Oatmeal v0.7 (Accurate Radius)</strong>
+        <strong style="margin-bottom:5px;">Oatmeal v0.8</strong>
         <input id="storeSearchBox" type="text" placeholder="Search Store (e.g. 97)" />
         <button id="storeSearchBtn" class="control-btn">Find Store</button>
-        
-        <input id="stationSearchBox" type="text" placeholder="Search Station (e.g. KDIL)" />
+        <input id="stationSearchBox" type="text" placeholder="Search Station (e.g. KCMS)" />
         <button id="stationSearchBtn" class="control-btn">Find Station</button>
-        
         <button id="resetBtn" class="control-btn" style="color: #d9534f; margin-top:5px;">Reset Map</button>
-
         <hr style="width:100%; border: 0; border-top: 1px solid #eee; margin: 10px 0;">
-
         <div id="filters">
             <label><input type="checkbox" id="storesCheckbox" checked> Stores</label><br>
             <label><input type="checkbox" id="stationsCheckbox" checked> Radio Stations</label><br>
             <label><input type="checkbox" id="billboardsCheckbox" checked> Billboards</label>
         </div>
     </div>
-
     <div id="map"></div>
-
     <div id="legend">
         <div class="legend-item"><span class="legend-color store-c"></span> Store</div>
         <div class="legend-item"><span class="legend-color station-c"></span> Radio Station</div>
@@ -76,16 +61,12 @@
         const storeMarkers = [], stationMarkers = [], billboardMarkers = [];
         let globalStations = [];
         let highlightedMarker = null;
-
         const COLORS = { "Store": "#FF6347", "Station": "#1E90FF", "Billboard": "#32CD32" };
 
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 5, 
-                center: { lat: 42.53, lng: -114.36 },
-                gestureHandling: "greedy", 
-                mapTypeControl: false,
-                scaleControl: true, // --- SCALE BAR ENABLED ---
+                zoom: 6, center: { lat: 47.5, lng: -122.3 },
+                gestureHandling: "greedy", scaleControl: true, mapTypeControl: false,
                 styles: [{ featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] }]
             });
 
@@ -100,10 +81,14 @@
                 fetch('./billboards.json').then(res => res.json()),
                 fetch('./locations.json').then(res => res.json())
             ]).then(([stations, billboards, stores]) => {
-                globalStations = stations;
+                
+                // --- SORTING LOGIC ---
+                // We sort stations by Radius (Largest to Smallest)
+                // This ensures large circles are drawn first (on the bottom)
+                globalStations = stations.sort((a, b) => (b.Radius || 0) - (a.Radius || 0));
 
                 createMarkers(stores.map(d => ({...d, Type: "Store"})), infoWindow);
-                createMarkers(stations.map(d => ({...d, Type: "Station"})), infoWindow);
+                createMarkers(globalStations.map(d => ({...d, Type: "Station"})), infoWindow);
                 createMarkers(billboards.map(d => ({...d, Type: "Billboard"})), infoWindow);
 
                 storeClusterer.addMarkers(storeMarkers);
@@ -113,51 +98,38 @@
                 ['storesCheckbox', 'stationsCheckbox', 'billboardsCheckbox'].forEach(id => {
                     document.getElementById(id).addEventListener('change', updateMarkers);
                 });
-
-            }).catch(err => console.error("Oatmeal Data Error:", err));
+            });
 
             function createMarkers(locations, infoWindow) {
                 locations.forEach(loc => {
-                    const lat = parseFloat(loc.Latitude);
-                    const lng = parseFloat(loc.Longitude);
-                    if (isNaN(lat) || isNaN(lng)) return; // Skip bad data
-
-                    const position = { lat: lat, lng: lng };
+                    const lat = parseFloat(loc.Latitude), lng = parseFloat(loc.Longitude);
+                    if (isNaN(lat) || isNaN(lng)) return;
+                    const position = { lat, lng };
                     const color = COLORS[loc.Type];
 
-                    // --- TOOLTIP LOGIC ---
+                    // Tooltip Check
                     let hoverLabel = String(loc.Name);
                     if (loc.Type === "Station") {
                         const overlap = globalStations.filter(s => s.Latitude === loc.Latitude && s.Longitude === loc.Longitude).length;
                         if (overlap > 1) hoverLabel = "Multiple stations";
                     }
 
-                    // --- ACCURATE RADIUS LOGIC ---
+                    // --- REFINED CIRCLE LOGIC ---
                     let coverageCircle = null;
-                    const rawRadius = parseFloat(loc.Radius);
-                    if ((loc.Type === "Station" || loc.Type === "Billboard") && !isNaN(rawRadius) && rawRadius > 0) {
+                    const rMiles = parseFloat(loc.Radius);
+                    if ((loc.Type === "Station" || loc.Type === "Billboard") && rMiles > 0) {
                         coverageCircle = new google.maps.Circle({
-                            strokeColor: color, 
-                            strokeOpacity: 0.4, 
-                            strokeWeight: 1,
-                            fillColor: color, 
-                            fillOpacity: 0.12,
-                            center: position, 
-                            map: map, 
-                            clickable: false,
-                            radius: rawRadius * 1609.34, // Miles to Meters
-                            geodesic: true // --- PREVENTS SCALE DISTORTION ---
+                            strokeColor: color, strokeOpacity: 0.3, strokeWeight: 1,
+                            fillColor: color, fillOpacity: 0.08, // Lower opacity to handle overlaps better
+                            center: position, map: map, clickable: false,
+                            radius: rMiles * 1609.34, geodesic: true,
+                            zIndex: 1 // Base Z-Index
                         });
                     }
 
                     const marker = new google.maps.Marker({
-                        position: position, 
-                        title: hoverLabel,
-                        icon: {
-                            path: google.maps.SymbolPath.CIRCLE, scale: 6,
-                            fillColor: color, fillOpacity: 1,
-                            strokeWeight: 1.5, strokeColor: "#ffffff"
-                        }
+                        position, title: hoverLabel,
+                        icon: { path: google.maps.SymbolPath.CIRCLE, scale: 6, fillColor: color, fillOpacity: 1, strokeWeight: 1.5, strokeColor: "#fff" }
                     });
 
                     marker.defaultIcon = marker.getIcon();
@@ -168,16 +140,13 @@
                         marker.setIcon({ ...marker.defaultIcon, scale: 9, fillColor: "#FFD700" });
                         highlightedMarker = marker;
 
-                        let content = `<strong>${loc.Name}</strong><br>Type: ${loc.Type}<br>Radius: ${rawRadius || 0} mi`;
+                        let content = `<strong>${loc.Name}</strong><br>Dial: ${loc["Radio Dial"] || "N/A"}<br>Radius: ${rMiles} mi`;
                         if (loc.Type === "Store") {
                             const covering = globalStations.filter(st => {
-                                const dist = google.maps.geometry.spherical.computeDistanceBetween(
-                                    new google.maps.LatLng(position.lat, position.lng),
-                                    new google.maps.LatLng(st.Latitude, st.Longitude)
-                                );
-                                return dist <= (parseFloat(st.Radius) * 1609.34);
+                                const d = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(lat, lng), new google.maps.LatLng(st.Latitude, st.Longitude));
+                                return d <= (parseFloat(st.Radius) * 1609.34);
                             }).map(st => st.Name);
-                            content += `<br><br><b>Covered by Stations:</b><br>${covering.length ? covering.join("<br>") : "None"}`;
+                            content += `<br><br><b>Station Coverage:</b><br>${covering.join("<br>") || "None"}`;
                         }
                         infoWindow.setContent(content);
                         infoWindow.open(map, marker);
@@ -193,23 +162,21 @@
                 const s = document.getElementById('storesCheckbox').checked;
                 const r = document.getElementById('stationsCheckbox').checked;
                 const b = document.getElementById('billboardsCheckbox').checked;
-
-                if (s) storeClusterer.setMap(map); else storeClusterer.setMap(null);
-                if (r) stationClusterer.setMap(map); else stationClusterer.setMap(null);
-                if (b) billboardClusterer.setMap(map); else billboardClusterer.setMap(null);
-
+                s ? storeClusterer.setMap(map) : storeClusterer.setMap(null);
+                r ? stationClusterer.setMap(map) : stationClusterer.setMap(null);
+                b ? billboardClusterer.setMap(map) : billboardClusterer.setMap(null);
                 stationMarkers.forEach(m => { if (m.coverageCircle) m.coverageCircle.setMap(r ? map : null); });
                 billboardMarkers.forEach(m => { if (m.coverageCircle) m.coverageCircle.setMap(b ? map : null); });
             }
 
-            document.getElementById("storeSearchBtn").addEventListener("click", () => {
-                const val = document.getElementById("storeSearchBox").value.toLowerCase();
-                const m = storeMarkers.find(m => m.getTitle().toLowerCase().includes(val));
-                if (m) { map.panTo(m.getPosition()); map.setZoom(12); google.maps.event.trigger(m, "click"); }
+            document.getElementById("stationSearchBtn").addEventListener("click", () => {
+                const val = document.getElementById("stationSearchBox").value.toLowerCase();
+                const m = stationMarkers.find(m => m.getTitle().toLowerCase().includes(val));
+                if (m) { map.panTo(m.getPosition()); map.setZoom(10); google.maps.event.trigger(m, "click"); }
             });
 
             document.getElementById("resetBtn").addEventListener("click", () => {
-                map.setZoom(5); map.setCenter({ lat: 42.53, lng: -114.36 });
+                map.setZoom(6); map.setCenter({ lat: 47.5, lng: -122.3 });
                 if (highlightedMarker) highlightedMarker.setIcon(highlightedMarker.defaultIcon);
                 infoWindow.close();
             });
